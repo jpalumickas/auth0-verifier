@@ -4,6 +4,7 @@ require_relative 'verifier/version'
 require_relative 'verifier/error'
 require_relative 'verifier/configuration'
 require_relative 'verifier/jwks'
+require_relative 'verifier/handler'
 
 module Auth0
   module Verifier
