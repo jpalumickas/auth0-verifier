@@ -3,6 +3,7 @@
 require_relative 'verifier/version'
 require_relative 'verifier/error'
 require_relative 'verifier/configuration'
+require_relative 'verifier/jwks'
 
 module Auth0
   module Verifier
