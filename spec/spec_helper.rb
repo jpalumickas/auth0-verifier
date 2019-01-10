@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter
+]
+
+SimpleCov.start
+
 require 'bundler/setup'
 require 'auth0/verifier'
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!(allow: ['codeclimate.com'])
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

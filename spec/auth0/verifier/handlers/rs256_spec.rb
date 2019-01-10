@@ -3,12 +3,14 @@
 require 'spec_helper'
 
 RSpec.describe Auth0::Verifier::Handlers::Rs256 do
-  subject { described_class.new(token: token, config: config) }
+  let(:verifier) { described_class.new(token: token, config: config) }
 
+  let(:audience) { 'test-audience' }
+  let(:domain) { 'example.com' }
   let(:config) do
     config = Auth0::Verifier::Configuration.new
-    config.audience = 'test-audience'
-    config.domain = 'example.com'
+    config.audience = audience
+    config.domain = domain
     config
   end
 
@@ -77,8 +79,8 @@ RSpec.describe Auth0::Verifier::Handlers::Rs256 do
       {
         kid: 123,
         sub: 'john',
-        aud: 'test-audience',
-        iss: 'https://example.com/'
+        aud: audience,
+        iss: "https://#{domain}/"
       },
       private_key,
       'RS256',
@@ -87,21 +89,64 @@ RSpec.describe Auth0::Verifier::Handlers::Rs256 do
   end
 
   before do
-    allow_any_instance_of(Auth0::Verifier::Jwks)
-      .to receive(:data).and_return(jwks_data)
+    stub_request(:get, "https://#{domain}/.well-known/jwks.json").to_return(
+      status: 200,
+      body: jwks_data.to_json,
+      headers: { 'Content-Type' => 'application/json' }
+    )
   end
 
-  it 'returns correct data' do
-    expect(subject.verify).to eq(
-      [
-        {
-          'kid' => 123,
-          'sub' => 'john',
-          'aud' => 'test-audience',
-          'iss' => 'https://example.com/'
-        },
-        { 'alg' => 'RS256', 'kid' => 123 }
-      ]
-    )
+  context 'with valid token' do
+    let(:return_data) do
+      {
+        'kid' => 123,
+        'sub' => 'john',
+        'aud' => audience,
+        'iss' => "https://#{domain}/"
+      }
+    end
+
+    let(:return_headers) do
+      { 'alg' => 'RS256', 'kid' => 123 }
+    end
+
+    it 'returns correct data' do
+      expect(verifier.verify).to eq([return_data, return_headers])
+    end
+  end
+
+  context 'with invalid token' do
+    let(:token) { 'test' }
+
+    it 'raises an error' do
+      expect { verifier.verify }.to raise_error(Auth0::Verifier::Error)
+    end
+  end
+
+  context 'with invalid audience' do
+    let(:config) do
+      config = Auth0::Verifier::Configuration.new
+      config.audience = 'bad'
+      config.domain = domain
+      config
+    end
+
+    it 'raises an error' do
+      expect { verifier.verify }.to raise_error(Auth0::Verifier::Error)
+    end
+  end
+
+  context 'with invalid domain' do
+    let(:config) do
+      config = Auth0::Verifier::Configuration.new
+      config.audience = audience
+      config.domain = 'example2.com'
+      config.jwks_url = "https://#{domain}/.well-known/jwks.json"
+      config
+    end
+
+    it 'raises an error' do
+      expect { verifier.verify }.to raise_error(Auth0::Verifier::Error)
+    end
   end
 end
