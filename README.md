@@ -63,7 +63,7 @@ Everyone interacting in the Auth0 Verifier project’s codebases, issue trackers
 Copyright (c) 2019 Justas Palumickas. See [LICENSE][license] for details.
 
 [rubygems]: https://rubygems.org/gems/auth0-verifier
-[travis]: https://travis-ci.org/jpalumickas/auth0-verifier
+[travis]: https://travis-ci.com/jpalumickas/auth0-verifier
 
 [license]: https://raw.githubusercontent.com/jpalumickas/auth0-verifie/master/LICENSE
 [auth0]: https://auth0.com
