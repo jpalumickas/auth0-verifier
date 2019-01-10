@@ -1,8 +1,6 @@
-# Auth0::Verifier
+# Auth0 Verifier
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/auth0/verifier`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Verify [Auth0](auth0) JWT token using RS256 with JWKS method.
 
 ## Installation
 
@@ -12,17 +10,32 @@ Add this line to your application's Gemfile:
 gem 'auth0-verifier'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install auth0-verifier
-
 ## Usage
 
-TODO: Write usage instructions here
+### In Rails using initializer
+
+Create file `config/initializers/auth0.rb` and add:
+
+```rb
+Auth0::Verifier.configure do |config|
+  config.domain = 'test.auth0.com' # Defaults to ENV variable AUTH0_DOMAIN
+  config.audience = 'https://example.com' # Defaults to ENV variable AUTH0_AUDIENCE
+
+  # Optional:
+  #
+  # config.type = :RS256 # Default RS256 using JWKS
+  # config.jwks_url = 'https://test.auth0.com/.well-known/jwks.json' # Defaults to domain
+end
+
+```
+
+
+Verify token:
+
+```rb
+Auth0::Verifier.verify('my token')
+
+```
 
 ## Development
 
@@ -30,14 +43,27 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+## Supported Ruby Versions
+
+This library aims to support and is [tested against][travis] the following Ruby
+implementations:
+
+* Ruby 2.3.0
+* Ruby 2.4.0
+* Ruby 2.5.0
+* Ruby 2.6.0
+
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/auth0-verifier. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jpalumickas/auth0-verifier. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
-Everyone interacting in the Auth0::Verifier project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/auth0-verifier/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Auth0 Verifier project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jpalumickas/auth0-verifier/blob/master/CODE_OF_CONDUCT.md).
+
+## Copyright
+Copyright (c) 2019 Justas Palumickas. See [LICENSE][license] for details.
+
+[license]: https://raw.githubusercontent.com/jpalumickas/auth0-verifie/master/LICENSE
+[auth0]: https://auth0.com

@@ -2,6 +2,9 @@ require: rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/rubocop'
+    - 'bin/rspec'
 
 Layout/AlignParameters:
   Enabled: true
@@ -19,3 +22,6 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*_spec.rb'
     - '*.gemspec'
+
+Style/Documentation:
+  Enabled: false
