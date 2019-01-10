@@ -11,6 +11,11 @@ module Auth0
             jwks.keys[header['kid']]
           end
         rescue JWT::DecodeError, JWT::VerificationError
+          if jwks_cache_exists?
+            remove_jwks_cache!
+            retry
+          end
+
           raise Auth0::Verifier::Error, 'Cannot verify token'
         end
 
@@ -37,7 +42,16 @@ module Auth0
         end
 
         def jwks
-          @jwks ||= Auth0::Verifier::Jwks.new(config.jwks_url)
+          @jwks ||= Auth0::Verifier::Jwks
+            .new(config.jwks_url, cache: config.cache)
+        end
+
+        def jwks_cache_exists?
+          config.cache.get(config.jwks_url)
+        end
+
+        def remove_jwks_cache!
+          config.cache.del(config.jwks_url)
         end
       end
     end

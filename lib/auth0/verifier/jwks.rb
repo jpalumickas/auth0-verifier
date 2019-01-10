@@ -9,10 +9,11 @@ require 'openssl'
 module Auth0
   module Verifier
     class Jwks
-      attr_reader :url
+      attr_reader :url, :cache
 
-      def initialize(url)
+      def initialize(url, cache: nil)
         @url = url
+        @cache = cache
       end
 
       def keys
@@ -34,10 +35,12 @@ module Auth0
       end
 
       def data
-        @data ||= begin
-          result = Net::HTTP.get(URI(url))
-          JSON.parse(result)
-        end
+        cached_data = cache&.get(url)
+        return JSON.parse(cached_data) if cached_data
+
+        result = Net::HTTP.get(URI(url))
+        cache&.set(result, url)
+        JSON.parse(result)
       end
     end
   end
