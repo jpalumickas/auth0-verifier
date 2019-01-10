@@ -1,2 +1,18 @@
 AllCops:
   TargetRubyVersion: 2.3
+
+Layout/AlignParameters:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Layout/CaseIndentation:
+  Enabled: true
+  EnforcedStyle: end
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
