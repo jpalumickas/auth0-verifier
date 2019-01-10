@@ -17,7 +17,7 @@ module Auth0
       end
 
       def config
-        @config ||= Configuration.new
+        @config ||= Auth0::Verifier::Configuration.new
       end
       alias configuration config
 

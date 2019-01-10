@@ -10,14 +10,14 @@ module Auth0
           decode_jwt do |header|
             jwks.keys[header['kid']]
           end
-        rescue JWT::DecodeError, JWT::VerificationError
+        rescue ::JWT::DecodeError, ::JWT::VerificationError
           raise Auth0::Verifier::Error, 'Cannot verify token'
         end
 
         private
 
         def decode_jwt(&block)
-          JWT.decode(
+          ::JWT.decode(
             token,
             nil,
             true, # Verify the signature of this token
