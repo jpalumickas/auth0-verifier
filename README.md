@@ -2,6 +2,8 @@
 
 Verify [Auth0](auth0) JWT token using RS256 with JWKS method.
 
+[![Gem Version](https://img.shields.io/gem/v/auth0-verifier.svg?style=flat-square)][rubygems]
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -64,6 +66,8 @@ Everyone interacting in the Auth0 Verifier project’s codebases, issue trackers
 
 ## Copyright
 Copyright (c) 2019 Justas Palumickas. See [LICENSE][license] for details.
+
+[rubygems]: https://rubygems.org/gems/auth0-verifier
 
 [license]: https://raw.githubusercontent.com/jpalumickas/auth0-verifie/master/LICENSE
 [auth0]: https://auth0.com
