@@ -4,11 +4,13 @@ require 'uri'
 
 module Auth0
   module Verifier
+    # Configuration file
     class Configuration
-      attr_writer :domain, :audience, :jwks_url, :type
+      attr_writer :domain, :audience, :jwks_url, :type, :use_ssl
 
       def url
-        "https://#{domain}"
+        protocol = use_ssl ? 'https' : 'http'
+        "#{protocol}://#{domain}"
       end
 
       def domain
@@ -21,6 +23,12 @@ module Auth0
 
       def audience
         @audience || ENV['AUTH0_AUDIENCE']
+      end
+
+      def use_ssl
+        return @use_ssl unless @use_ssl.nil?
+
+        true
       end
 
       def jwks_url

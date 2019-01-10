@@ -21,6 +21,11 @@ module Auth0
       end
       alias configuration config
 
+      def configure
+        yield(config) if block_given?
+        true
+      end
+
       private
 
       def handler
