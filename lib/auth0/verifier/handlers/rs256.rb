@@ -8,7 +8,7 @@ module Auth0
       class Rs256 < Base
         def verify
           decode_jwt do |header|
-            jwks.hash[header['kid']]
+            jwks.keys[header['kid']]
           end
         rescue JWT::DecodeError, JWT::VerificationError
           raise Auth0::Verifier::Error, 'Cannot verify token'

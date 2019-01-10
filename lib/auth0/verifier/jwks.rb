@@ -15,7 +15,7 @@ module Auth0
         @url = url
       end
 
-      def hash
+      def keys
         return unless data
 
         jwks_keys = Array(data['keys'])
