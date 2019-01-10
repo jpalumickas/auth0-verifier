@@ -95,12 +95,12 @@ RSpec.describe Auth0::Verifier::Handlers::Rs256 do
     expect(subject.verify).to eq(
       [
         {
-          "kid"=>123,
-          "sub"=>"john",
-          "aud"=>"test-audience",
-          "iss"=>"https://example.com/"
+          'kid' => 123,
+          'sub' => 'john',
+          'aud' => 'test-audience',
+          'iss' => 'https://example.com/'
         },
-        {"alg"=>"RS256", "kid"=>123}
+        { 'alg' => 'RS256', 'kid' => 123 }
       ]
     )
   end
