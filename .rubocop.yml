@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 2.3
 
@@ -16,3 +18,4 @@ Layout/CaseIndentation:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*_spec.rb'
+    - '*.gemspec'
