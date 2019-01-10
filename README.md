@@ -3,7 +3,7 @@
 Verify [Auth0][auth0] JWT token using RS256 with JWKS method.
 
 [![Gem Version](https://img.shields.io/gem/v/auth0-verifier.svg?style=flat-square)][rubygems]
-[![Build Status](https://img.shields.io/travis/jpalumickas/auth0-verifier.svg?style=flat-square)][travis]
+[![Build Status](https://img.shields.io/travis/com/jpalumickas/auth0-verifier.svg?style=flat-square)][travis]
 
 ## Installation
 
