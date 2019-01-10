@@ -39,12 +39,6 @@ Auth0::Verifier.verify('my token')
 
 ```
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Supported Ruby Versions
 
 This library aims to support and is [tested against][travis] the following Ruby
@@ -68,6 +62,7 @@ Everyone interacting in the Auth0 Verifier project’s codebases, issue trackers
 Copyright (c) 2019 Justas Palumickas. See [LICENSE][license] for details.
 
 [rubygems]: https://rubygems.org/gems/auth0-verifier
+[travis]: https://travis-ci.org/jpalumickas/auth0-verifier
 
 [license]: https://raw.githubusercontent.com/jpalumickas/auth0-verifie/master/LICENSE
 [auth0]: https://auth0.com
