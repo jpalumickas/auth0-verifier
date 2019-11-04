@@ -3,7 +3,7 @@
 Verify [Auth0][auth0] JWT token using RS256 with JWKS method.
 
 [![Gem Version](https://img.shields.io/gem/v/auth0-verifier.svg?style=flat-square)][rubygems]
-[![Build Status](https://img.shields.io/travis/com/jpalumickas/auth0-verifier.svg?style=flat-square)][travis]
+[![Coverage Status](https://img.shields.io/codecov/c/github/jpalumickas/mailerlite-ruby?style=flat-square)][codecov]
 
 ## Installation
 
@@ -42,7 +42,7 @@ Auth0::Verifier.verify('my token')
 
 ## Supported Ruby Versions
 
-This library aims to support and is [tested against][travis] the following Ruby
+This library aims to support and is [tested against][github_actions] the following Ruby
 implementations:
 
 * Ruby 2.3.0
@@ -63,7 +63,8 @@ Everyone interacting in the Auth0 Verifier project’s codebases, issue trackers
 Copyright (c) 2019 Justas Palumickas. See [LICENSE][license] for details.
 
 [rubygems]: https://rubygems.org/gems/auth0-verifier
-[travis]: https://travis-ci.com/jpalumickas/auth0-verifier
+[codecov]: https://codecov.io/gh/jpalumickas/auth0-verifier
+[github_actions]: https://github.com/jpalumickas/auth0-verifier/actions
 
 [license]: https://raw.githubusercontent.com/jpalumickas/auth0-verifie/master/LICENSE
 [auth0]: https://auth0.com
