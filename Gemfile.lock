@@ -10,6 +10,10 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
+    codecov (0.1.16)
+      json
+      simplecov
+      url
     coderay (1.1.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -59,6 +63,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
     unicode-display_width (1.6.0)
+    url (0.3.2)
     webmock (3.7.6)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -70,6 +75,7 @@ PLATFORMS
 DEPENDENCIES
   auth0-verifier!
   bundler (~> 2.0)
+  codecov
   pry
   rake (~> 12.0)
   rspec (~> 3.9)
