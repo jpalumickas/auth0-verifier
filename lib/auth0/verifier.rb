@@ -15,7 +15,8 @@ module Auth0
       end
 
       def verify!(options = {})
-        handler = Auth0::Verifier::Handler.new(options.except(:token))
+        handler_options = options.dup.tap { |it| it.delete(:token) }
+        handler = Auth0::Verifier::Handler.new(handler_options)
         handler.verify(options[:token])
       end
 
