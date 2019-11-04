@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 group :development do
-  gem 'rubocop', '~> 0.62'
+  gem 'rubocop', '~> 0.76'
   gem 'rubocop-rspec'
 end
 
@@ -12,10 +12,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rake' # For Travis CI
-  gem 'rspec', '~> 3.8'
-  gem 'simplecov', '~> 0.16', require: false
-  gem 'webmock', '~> 3.5'
+  gem 'rspec', '~> 3.9'
+  gem 'simplecov', '~> 0.17', require: false
+  gem 'webmock', '~> 3.7'
 end
 
 gemspec
