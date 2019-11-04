@@ -14,7 +14,7 @@ module Auth0
       end
 
       def domain
-        (@domain || ENV['AUTH0_DOMAIN']).gsub(%r{\Ahttps?://}, '')
+        (@domain || ENV['AUTH0_DOMAIN'])&.gsub(%r{\Ahttps?://}, '')
       end
 
       def type
