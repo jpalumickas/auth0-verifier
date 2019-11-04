@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    auth0-verifier (0.2.0)
+    auth0-verifier (0.3.0)
       jwt (>= 2.0)
 
 GEM
