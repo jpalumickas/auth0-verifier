@@ -60,7 +60,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/jpalum
 Everyone interacting in the Auth0 Verifier project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jpalumickas/auth0-verifier/blob/master/CODE_OF_CONDUCT.md).
 
 ## Copyright
-Copyright (c) 2019 Justas Palumickas. See [LICENSE][license] for details.
+Copyright (c) 2020 Justas Palumickas. See [LICENSE][license] for details.
 
 [rubygems]: https://rubygems.org/gems/auth0-verifier
 [codecov]: https://codecov.io/gh/jpalumickas/auth0-verifier
