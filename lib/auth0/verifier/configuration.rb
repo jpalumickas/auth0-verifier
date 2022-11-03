@@ -14,7 +14,7 @@ module Auth0
       end
 
       def domain
-        (@domain || ENV['AUTH0_DOMAIN'])&.gsub(%r{\Ahttps?://}, '')
+        (@domain || ENV.fetch('AUTH0_DOMAIN', nil))&.gsub(%r{\Ahttps?://}, '')
       end
 
       def type
@@ -22,7 +22,7 @@ module Auth0
       end
 
       def audience
-        @audience || ENV['AUTH0_AUDIENCE']
+        @audience || ENV.fetch('AUTH0_AUDIENCE', nil)
       end
 
       def use_ssl
