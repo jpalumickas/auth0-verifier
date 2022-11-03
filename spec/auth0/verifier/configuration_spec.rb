@@ -16,13 +16,13 @@ RSpec.describe Auth0::Verifier::Configuration do
 
     context 'with ENV variable' do
       it 'returns correct domain when only host set' do
-        allow(ENV).to receive(:[]).with('AUTH0_DOMAIN')
+        allow(ENV).to receive(:fetch).with('AUTH0_DOMAIN', nil)
           .and_return('example.com')
         expect(config.domain).to eq('example.com')
       end
 
       it 'returns correct domain when host with protocol set' do
-        allow(ENV).to receive(:[]).with('AUTH0_DOMAIN')
+        allow(ENV).to receive(:fetch).with('AUTH0_DOMAIN', nil)
           .and_return('https://example.com')
         expect(config.domain).to eq('example.com')
       end
