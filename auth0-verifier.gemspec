@@ -32,16 +32,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.required_ruby_version = '>= 2.7.0'
 
   spec.add_dependency 'jwt', '>= 2.0'
-  spec.add_development_dependency 'bundler', '~> 2.2'
-  spec.add_development_dependency 'codecov', '~> 0.6'
-  spec.add_development_dependency 'pry', '~> 0.14'
-  spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'rspec', '~> 3.12'
-  spec.add_development_dependency 'rubocop', '~> 1.38'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.14'
-  spec.add_development_dependency 'simplecov', '~> 0.21'
-  spec.add_development_dependency 'webmock', '~> 3.18'
 end

@@ -45,10 +45,12 @@ Auth0::Verifier.verify('my token')
 This library aims to support and is [tested against][github_actions] the following Ruby
 implementations:
 
-* Ruby 2.6
 * Ruby 2.7
 * Ruby 3.0
 * Ruby 3.1
+* Ruby 3.2
+* Ruby 3.3
+* Ruby 3.4
 
 ## Contributing
 
