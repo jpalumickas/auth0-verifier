@@ -87,7 +87,7 @@ PLATFORMS
 
 DEPENDENCIES
   auth0-verifier!
-  bundler (~> 2.6)
+  bundler (~> 2.5)
   codecov (~> 0.6)
   pry (~> 0.15)
   rake (~> 13.2)
