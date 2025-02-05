@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'bundler', '~> 2.4'
   gem 'codecov', '~> 0.6'
   gem 'pry', '~> 0.15'
   gem 'rake', '~> 13.2'
